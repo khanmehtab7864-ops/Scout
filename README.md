@@ -60,7 +60,7 @@ Built in modern C++, Scout combines project inspection, file analysis, source co
 * CSV export
 * Machine-readable reports for automation and scripting
 
-//Note: Currently the features and the tool is under development whci would take time to  coomplete the version 1.0.
+//Note: Currently the features and the tool is under development which would take time to  coomplete the version 1.0.
 
 ## Philosophy
 
