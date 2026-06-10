@@ -9,4 +9,5 @@ public:
     static void TreeCountExt();
     static void ListAllFile();
     static void TreeListAllFile();
+    static void GetDirSize();
 };

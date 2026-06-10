@@ -154,6 +154,34 @@ void Analysis::TreeListAllFile()  {
         }   
     } 
 }
-        
+
+
+void Analysis::GetDirSize()  {
+    uintmax_t Size = 0;
+    for(const auto& file : fs::recursive_directory_iterator(".")) {
+        if(fs::is_regular_file(file)) {
+            Size += fs::file_size(file);
+        }
+    }
+    if(Size >= 1000 && Size <= 999999)
+      {
+         uintmax_t size = Size / 1000;
+         std::cout << size << "kb\n";
+      }
+      else if(Size >= 1000000 && Size <= 999999999)
+      {
+          uintmax_t size = Size / 1000000;
+          std::cout << size << "mb\n";
+      }
+      else if(Size >= 1000000000)
+      {
+          uintmax_t size = Size / 1000000000;
+          std::cout << size << "gb\n";
+      }
+      else
+      {
+         std::cout << Size << " bytes\n";
+      }  
+}
 
 

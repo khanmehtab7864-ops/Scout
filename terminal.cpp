@@ -16,6 +16,8 @@ void terminal(const std::string& command)
         Analysis::ListAllFile();
     }else if(command == "Tree ListAllFile")  {
         Analysis::TreeListAllFile();  
+    }else if(command == "Get DirSize")  {
+        Analysis::GetDirSize();
     }else{
         std::cout << "Error:\nFunction not found\n";
     }
