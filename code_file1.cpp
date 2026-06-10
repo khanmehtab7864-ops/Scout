@@ -33,7 +33,7 @@ void Analysis::TreeFileCount() {
 
 void Analysis::CountExt() {
     int count = 0;
-    std::string Ext; std::cin >> Ext;
+    std::string Ext; std::getline(std::cin, Ext);
     for(const auto& file : fs::directory_iterator("."))
     {
         if(file.path().extension() == Ext)
@@ -46,7 +46,7 @@ void Analysis::CountExt() {
 
 void Analysis::TreeCountExt()  {
     int count = 0;
-    std::string Ext; std::cin >> Ext;
+    std::string Ext; std::getline(std::cin, Ext);
     for(const auto& file : fs::recursive_directory_iterator("."))
     {
         if(file.path().extension() == Ext)
