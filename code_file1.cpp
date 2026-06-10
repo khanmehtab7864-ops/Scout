@@ -57,7 +57,7 @@ void Analysis::TreeCountExt(const fs::path& path)  {
     std::cout << "Total files by extension with " << Ext << " including sub-folder in " << fs::current_path() << ": " << count << "\n";
 }
 
-void Analysis::ListAllFile(const fs::path& path)  {
+void Analysis::LargestFiles(const fs::path& path)  {
     int count = 0;
     struct FileInfo {
         std::string filename;
@@ -106,7 +106,7 @@ void Analysis::ListAllFile(const fs::path& path)  {
     } 
 } 
 
-void Analysis::TreeListAllFile(const fs::path& path)  {
+void Analysis::TreeLargestFiles(const fs::path& path)  {
     int count = 0;
     struct FileInfo {
         std::string filename;
@@ -182,6 +182,104 @@ void Analysis::GetDirSize(const fs::path& path)  {
       {
          std::cout << Size << " bytes\n";
       }  
+}
+
+void Analysis::SmallestFiles(const fs::path& path)  {
+    int count = 0;
+    struct FileInfo {
+        std::string filename;
+        uintmax_t filesize;
+    };
+    std::vector<FileInfo>files;
+    for(const auto& file : fs::directory_iterator(path))
+    {
+        if(fs::is_regular_file(file))
+        {
+            files.push_back({file.path().filename().string(), fs::file_size(file)});
+            count++;
+        }
+    }
+    if(count == 0)  {
+            std::cout << "No file found";
+    }
+    std::sort(files.begin(), files.end(), [](const FileInfo a, const FileInfo b)
+    {
+        return a.filesize < b.filesize;
+    });
+    
+    std::cout << "filename" << "           " << "size\n";
+
+    for(const auto& file : files)
+    {
+        if(file.filesize >= 1000 && file.filesize <= 999999)
+       {
+           uintmax_t size = file.filesize / 1000;
+           std::cout << file.filename << "           " << size << "kb\n";
+        }
+        else if(file.filesize >= 1000000 && file.filesize <= 999999999)
+        {
+            uintmax_t size = file.filesize / 1000000;
+           std::cout << file.filename << "           " << size << "mb\n";
+        }
+        else if(file.filesize >= 1000000000)
+        {
+            uintmax_t size = file.filesize / 1000000000;
+            std::cout << file.filename << "           " << size << "gb\n";
+        }
+        else
+        {
+           std::cout << file.filename << "           " << file.filesize << " bytes\n";
+        }   
+    } 
+} 
+
+void Analysis::TreeSmallestFiles(const fs::path& path)  {
+    int count = 0;
+    struct FileInfo {
+        std::string filename;
+        uintmax_t filesize;
+    };
+    std::vector<FileInfo>files;
+    for(const auto& file : fs::recursive_directory_iterator(path))
+    {
+        if(fs::is_regular_file(file))
+        {
+            files.push_back({file.path().filename().string(), fs::file_size(file)});
+            count++;
+        }
+    }
+    if(count == 0)  {
+            std::cout << "No file found";
+    }
+    std::sort(files.begin(), files.end(), [](const FileInfo a, const FileInfo b)
+    {
+        return a.filesize < b.filesize;
+    });
+    
+    std::cout << "filename" << "            " << "size\n";
+
+    for(const auto& file : files)
+    {
+        if(file.filesize >= 1000 && file.filesize <= 999999)
+       {
+           uintmax_t size = file.filesize / 1000;
+           std::cout << file.filename << "           " << size << "kb\n";
+        }
+        else if(file.filesize >= 1000000 && file.filesize <= 999999999)
+        {
+            uintmax_t size = file.filesize / 1000000;
+           std::cout << file.filename << "           " << size << "mb\n";
+        }
+        else if(file.filesize >= 1000000000)
+        {
+            uintmax_t size = file.filesize / 1000000000;
+            std::cout << file.filename << "           " << size << "gb\n";
+        }
+        else
+        {
+           std::cout << file.filename << "           " << file.filesize << " bytes\n";
+        }   
+    } 
 }
 
 
