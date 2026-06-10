@@ -60,6 +60,8 @@ Built in modern C++, Scout combines project inspection, file analysis, source co
 * CSV export
 * Machine-readable reports for automation and scripting
 
+//Note: Currently the features and the tool is under development whci would take time to  coomplete the version 1.0.
+
 ## Philosophy
 
 Scout follows the Unix philosophy of providing useful information quickly and efficiently through the terminal. It is designed for developers who prefer lightweight tools, automation, and command-line workflows over heavy graphical applications.
