@@ -7,9 +7,9 @@
 
 namespace fs = std::filesystem;
 
-void Analysis::FileCount() {
+void Analysis::FileCount(const fs::path& path) {
     int count = 0;
-    for(const auto& file : fs::directory_iterator("."))
+    for(const auto& file : fs::directory_iterator(path))
     {
         if(fs::is_regular_file(file))
         {
@@ -19,9 +19,9 @@ void Analysis::FileCount() {
     std::cout << "Total file in " << fs::current_path() << ": " << count << "\n";
 }
 
-void Analysis::TreeFileCount() {
+void Analysis::TreeFileCount(const fs::path& path) {
     int count = 0;
-    for(const auto& file : fs::recursive_directory_iterator("."))
+    for(const auto& file : fs::recursive_directory_iterator(path))
     {
         if(fs::is_regular_file(file))
         {
@@ -31,10 +31,10 @@ void Analysis::TreeFileCount() {
     std::cout << "Total file including sub folder in " << fs::current_path() << ": " << count << "\n";
 }
 
-void Analysis::CountExt() {
+void Analysis::CountExt(const fs::path& path) {
     int count = 0;
     std::string Ext; std::getline(std::cin, Ext);
-    for(const auto& file : fs::directory_iterator("."))
+    for(const auto& file : fs::directory_iterator(path))
     {
         if(file.path().extension() == Ext)
         {
@@ -44,10 +44,10 @@ void Analysis::CountExt() {
     std::cout << "Total files by extension " << Ext << " in " << fs::current_path() << ": " << count << "\n";
 }
 
-void Analysis::TreeCountExt()  {
+void Analysis::TreeCountExt(const fs::path& path)  {
     int count = 0;
     std::string Ext; std::getline(std::cin, Ext);
-    for(const auto& file : fs::recursive_directory_iterator("."))
+    for(const auto& file : fs::recursive_directory_iterator(path))
     {
         if(file.path().extension() == Ext)
         {
@@ -57,14 +57,14 @@ void Analysis::TreeCountExt()  {
     std::cout << "Total files by extension with " << Ext << " including sub-folder in " << fs::current_path() << ": " << count << "\n";
 }
 
-void Analysis::ListAllFile()  {
+void Analysis::ListAllFile(const fs::path& path)  {
     int count = 0;
     struct FileInfo {
         std::string filename;
         uintmax_t filesize;
     };
     std::vector<FileInfo>files;
-    for(const auto& file : fs::directory_iterator("."))
+    for(const auto& file : fs::directory_iterator(path))
     {
         if(fs::is_regular_file(file))
         {
@@ -106,14 +106,14 @@ void Analysis::ListAllFile()  {
     } 
 } 
 
-void Analysis::TreeListAllFile()  {
+void Analysis::TreeListAllFile(const fs::path& path)  {
     int count = 0;
     struct FileInfo {
         std::string filename;
         uintmax_t filesize;
     };
     std::vector<FileInfo>files;
-    for(const auto& file : fs::recursive_directory_iterator("."))
+    for(const auto& file : fs::recursive_directory_iterator(path))
     {
         if(fs::is_regular_file(file))
         {
@@ -156,9 +156,9 @@ void Analysis::TreeListAllFile()  {
 }
 
 
-void Analysis::GetDirSize()  {
+void Analysis::GetDirSize(const fs::path& path)  {
     uintmax_t Size = 0;
-    for(const auto& file : fs::recursive_directory_iterator(".")) {
+    for(const auto& file : fs::recursive_directory_iterator(path)) {
         if(fs::is_regular_file(file)) {
             Size += fs::file_size(file);
         }
