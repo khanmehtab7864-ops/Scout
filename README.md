@@ -1,6 +1,6 @@
-# Scout
+# PathScout
 
-Scout is a lightweight command-line utility for developers, programmers, and system enthusiasts. It explores projects, directories, and source code repositories to provide detailed statistics, insights, and structure analysis directly from the terminal.
+PathScout is a lightweight command-line utility for developers, programmers, and system enthusiasts. It explores projects, directories, and source code repositories to provide detailed statistics, insights, and structure analysis directly from the terminal.
 
 Built in modern C++, Scout combines project inspection, file analysis, source code statistics, and repository exploration into a single fast and portable utility.
 
