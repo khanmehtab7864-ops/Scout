@@ -62,10 +62,3 @@ Built in modern C++, Scout combines project inspection, file analysis, source co
 
 //Note: Currently the features and the tool is under development which would take time to  coomplete the version 1.0.
 
-## Philosophy
-
-Scout follows the Unix philosophy of providing useful information quickly and efficiently through the terminal. It is designed for developers who prefer lightweight tools, automation, and command-line workflows over heavy graphical applications.
-
-Whether you're exploring an unfamiliar codebase, analyzing your own projects, auditing repository structure, or gathering development metrics, Scout provides a fast and convenient way to inspect and understand projects from the command line.
-
-Built with performance, simplicity, and extensibility in mind.
