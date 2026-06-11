@@ -2,4 +2,4 @@
 
 #include <string>
 
-void terminal(const std::string& command);
+void terminal(const std::string& argv1, const std::string& argv2, const std::string& argv3);

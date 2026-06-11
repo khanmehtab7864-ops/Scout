@@ -1,16 +1,18 @@
 #include <iostream>
 #include "functions.h"
 #include "terminal.h"
-#include <cstdlib>
+#include <string>
+#include <vector>
 
-int main()
+int main(const int argc, const char* argv[])
 {
-    std::cout << "type 'exit' to end program\n";
-    std::string command; std::getline(std::cin, command);
-        if(command == "exit") {
-            std::exit(EXIT_FAILURE);
-        }else {
-            terminal(command);
-        }
-    return 0;
+    if(!argc <=4)
+    {
+        std::err << "Invalid commands";
+    }
+    std::string argv1 = argv[1];
+    std::string argv2 = argv[2];
+    std::string argv3 = argv[3];
+    
+    terminal(argv1, argv2, argv3);
 }
