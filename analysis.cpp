@@ -4,11 +4,18 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
 
 namespace fs = std::filesystem;
 
 void Analysis::FileCount(const fs::path& path) {
     int count = 0;
+
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     for(const auto& file : fs::directory_iterator(path))
     {
         if(fs::is_regular_file(file))
@@ -21,6 +28,12 @@ void Analysis::FileCount(const fs::path& path) {
 
 void Analysis::TreeFileCount(const fs::path& path) {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     for(const auto& file : fs::recursive_directory_iterator(path))
     {
         if(fs::is_regular_file(file))
@@ -33,6 +46,12 @@ void Analysis::TreeFileCount(const fs::path& path) {
 
 void Analysis::CountExt(const fs::path& path) {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     std::string Ext; std::getline(std::cin, Ext);
     for(const auto& file : fs::directory_iterator(path))
     {
@@ -46,6 +65,12 @@ void Analysis::CountExt(const fs::path& path) {
 
 void Analysis::TreeCountExt(const fs::path& path)  {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     std::string Ext; std::getline(std::cin, Ext);
     for(const auto& file : fs::recursive_directory_iterator(path))
     {
@@ -59,6 +84,12 @@ void Analysis::TreeCountExt(const fs::path& path)  {
 
 void Analysis::LargestFiles(const fs::path& path)  {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     struct FileInfo {
         std::string filename;
         uintmax_t filesize;
@@ -108,6 +139,12 @@ void Analysis::LargestFiles(const fs::path& path)  {
 
 void Analysis::TreeLargestFiles(const fs::path& path)  {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     struct FileInfo {
         std::string filename;
         uintmax_t filesize;
@@ -158,6 +195,12 @@ void Analysis::TreeLargestFiles(const fs::path& path)  {
 
 void Analysis::GetDirSize(const fs::path& path)  {
     uintmax_t Size = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     for(const auto& file : fs::recursive_directory_iterator(path)) {
         if(fs::is_regular_file(file)) {
             Size += fs::file_size(file);
@@ -186,6 +229,12 @@ void Analysis::GetDirSize(const fs::path& path)  {
 
 void Analysis::SmallestFiles(const fs::path& path)  {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     struct FileInfo {
         std::string filename;
         uintmax_t filesize;
@@ -235,6 +284,12 @@ void Analysis::SmallestFiles(const fs::path& path)  {
 
 void Analysis::TreeSmallestFiles(const fs::path& path)  {
     int count = 0;
+    
+    if(!fs::exists(path)) {
+        std::cerr << "Error: PATH NOT FOUND\n";
+        std::exit(EXIT_FAILURE);
+    }
+    
     struct FileInfo {
         std::string filename;
         uintmax_t filesize;
