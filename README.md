@@ -1,64 +1,120 @@
 # PathScout
 
-PathScout is a lightweight command-line utility for developers, programmers, and system enthusiasts. It explores projects, directories, and source code repositories to provide detailed statistics, insights, and structure analysis directly from the terminal.
-
-Built in modern C++, Scout combines project inspection, file analysis, source code statistics, and repository exploration into a single fast and portable utility.
+PathScout is a lightweight open-source command-line utility written in C++ for filesystem analysis. It helps developers and power users inspect directories, count files, analyze extensions, calculate directory sizes, and list files by size.
 
 ## Features
 
-### File Analysis
+### File Statistics
 
-* Count total files
+* Count files in a directory
+* Count files recursively through subdirectories
+
+### Extension Analysis
+
 * Count files by extension
-* Find largest and smallest files
-* Calculate total project size
-* Display top largest files
-
-### Code Analysis
-
-* Count total lines
-* Count code lines
-* Count comment lines
-* Count blank lines
-* Count source and header files
-* Count include directives
+* Recursive extension counting
 
 ### Directory Analysis
 
-* Recursive directory traversal
-* Directory statistics
-* Empty directory detection
-* Directory tree exploration
-* Ignore configurable directories such as .git, build, and bin
+* Calculate total directory size
 
-### Search and Discovery
+### File Size Listing
 
-* Find files by extension
-* Find files by name pattern
-* Locate large files
-* Detect duplicate file names
+* List files from largest to smallest
+* List files from smallest to largest
+* Recursive largest-first listing
+* Recursive smallest-first listing
 
-### Development Insights
+### CLI Features
 
-* TODO scanner
-* FIXME scanner
-* Dependency analysis
-* Project structure overview
-* Source code metrics
+* Command-line interface
+* `--help` command
+* `--version` command
 
-### Statistics and Reporting
+## Installation
 
-* Project summary reports
-* Average file size
-* Average lines per file
-* Extension statistics
-* Largest extension groups
+### Build from Source
 
-### Export Support
+Clone the repository:
 
-* JSON export
-* CSV export
-* Machine-readable reports for automation and scripting
+```bash
+git clone https://github.com/khanmehtab7864-ops/PathScout.git
+cd PathScout
+```
 
-//Note: Currently the features and the tool is under development which would take time to  coomplete the version 1.0.
+Compile using your preferred compiler.
+
+Example using g++:
+
+```bash
+g++ -std=c++17 *.cpp -o PathScout
+```
+
+## Usage
+
+General format:
+
+```bash
+PathScout <Category> <Command> <Path>
+```
+
+Examples:
+
+```bash
+PathScout Analysis Count .
+PathScout Analysis TreeCount .
+PathScout Analysis DirSize .
+PathScout Analysis ListDesc .
+PathScout Analysis ListAsc .
+```
+
+### Available Commands
+
+| Command      | Description                      |
+| ------------ | -------------------------------- |
+| Count        | Count files in directory         |
+| TreeCount    | Count files recursively          |
+| CountExt     | Count files by extension         |
+| TreeCountExt | Recursive extension counting     |
+| DirSize      | Calculate directory size         |
+| ListDesc     | Largest to smallest files        |
+| TreeListDesc | Recursive largest-first listing  |
+| ListAsc      | Smallest to largest files        |
+| TreeListAsc  | Recursive smallest-first listing |
+
+### Flags
+
+```bash
+PathScout --help
+PathScout --version
+```
+
+## Roadmap
+
+### v0.1
+
+* File analysis tools
+* CLI workflow
+* Help and version commands
+
+### Planned
+
+* Improved output formatting
+* Additional analysis modules
+* More filesystem utilities
+* Better error handling
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+Mehtab Khan
+
+## Copyright
+
+Copyright (c) 2026 Mehtab Khan
+
+Released under the MIT License.
 

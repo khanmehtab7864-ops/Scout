@@ -1,0 +1,3 @@
+/home/mehtab/cpp_proj/build/CMakeFiles/PathScout.dir
+/home/mehtab/cpp_proj/build/CMakeFiles/edit_cache.dir
+/home/mehtab/cpp_proj/build/CMakeFiles/rebuild_cache.dir
